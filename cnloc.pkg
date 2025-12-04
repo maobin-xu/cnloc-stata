@@ -1,0 +1,8 @@
+v 1.0.0
+d Stata interface for the Python cnloc package. Address parsing for Chinese administrative divisions. Get province, city, and county names, administrative division codes, and unique IDs from addresses
+d 
+d by Maobin Xu
+d
+f cnloc.ado
+f cnloc.sthlp
+e cnloc.sthlp
