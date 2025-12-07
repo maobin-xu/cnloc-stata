@@ -1,4 +1,4 @@
-*! version 1.0.0 2025-12-05
+*! version 1.0.1 2025-12-07
 * by Maobin Xu
 
 program define cnloc
@@ -9,8 +9,11 @@ program define cnloc
     cnloc location year , mode(1) pre(a_) suf(_b)
     cnloc location , year(2024) mode(1) drop(year adcode id) pre(a_) suf(_b)
     */
-    syntax varlist(default=none max=2) [, year(integer 2024) mode(integer 1) drop(string) PREfix(string) SUFfix(string) ]   
+    syntax varlist(default=none max=2) [if] [in] [, year(integer 2024) mode(integer 1) drop(string) PREfix(string) SUFfix(string) ]   
 	
+	// mark sample
+	marksample touse, novarlist
+
 	// input_data and year variables
 	local varnum: word count `varlist' 
 	if `varnum'==2 {
@@ -26,7 +29,7 @@ program define cnloc
     if !missing("`input_location'") {
 		* parse address
 		python: import cnloc
-		python: cnloc.parse_address_from_Stata("`input_location'", year="`parsing_year'", mode=`mode', drop="`drop'", prefix="`prefix'", suffix="`suffix'")
+		python: cnloc.parse_address_from_Stata("`input_location'", year="`parsing_year'", mode=`mode', drop="`drop'", prefix="`prefix'", suffix="`suffix'", sample="`touse'")
     }
 end
 

@@ -1,6 +1,6 @@
 # cnloc (China Location)
 
-Last updated on 2025-12-05
+Last updated on 2025-12-07
 
 `cnloc` is an Stata interface for the Python cnloc package, which parses Chinese addresses to get province, city, and county names (_name), administrative division codes (_adcode), and unique IDs (_id) from addresses.
 
@@ -19,7 +19,7 @@ net install cnloc, from("https://raw.githubusercontent.com/maobin-xu/cnloc-stata
 
 Command syntax:
 ```stata
-cnloc address_var [ year_var , year(str) mode(str) drop(str) prefix(str) suffix(str) ]
+cnloc address_var [ year_var] [if] [in] [, year(str) mode(str) drop(str) prefix(str) suffix(str) ]
 ```
 - `address_var`: variable name for address strings
 - `year_var`: variable name for year

@@ -1,5 +1,5 @@
 {smcl}
-{* *! version 1.0.0  2025-12-05}{...}
+{* *! version 1.0.1  2025-12-07}{...}
 {title:Title}
 
 {pstd}
@@ -8,7 +8,7 @@
 
 {title:Syntax}
 
-{phang2}{cmd:cnloc} address_var [ year_var , {opt year(str)} {opt mode(str)} {opt drop(str)} {opt pre:fix(str)} {opt suf:fix(str)} ]{p_end}
+{phang2}{cmd:cnloc} address_var [ year_var] [if] [in] [ , {opt year(str)} {opt mode(str)} {opt drop(str)} {opt pre:fix(str)} {opt suf:fix(str)} ]{p_end}
 
 {synoptset 13 tabbed}{synopthdr}
 {synoptline}
