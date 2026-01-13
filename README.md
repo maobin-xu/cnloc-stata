@@ -1,6 +1,6 @@
 # cnloc (China Location)
 
-Last updated on 2025-12-07
+Last updated on 2026-01-13
 
 `cnloc` is an Stata interface for the Python cnloc package, which parses Chinese addresses to get province, city, and county names (_name), administrative division codes (_adcode), and unique IDs (_id) from addresses.
 
@@ -19,7 +19,7 @@ net install cnloc, from("https://raw.githubusercontent.com/maobin-xu/cnloc-stata
 
 Command syntax:
 ```stata
-cnloc address_var [ year_var] [if] [in] [, year(str) mode(str) drop(str) prefix(str) suffix(str) ]
+cnloc address_var [ year_var] [if] [in] [, year(str) mode(str) drop(str) prefix(str) suffix(str) county_short ]
 ```
 - `address_var`: variable name for address strings
 - `year_var`: variable name for year
@@ -28,6 +28,7 @@ cnloc address_var [ year_var] [if] [in] [, year(str) mode(str) drop(str) prefix(
 - `drop(str)`: variable list to drop in the final output. Default is None. `drop(year)` drops the year variable. `drop(name)}` drops full-name variables of province_name, city_name, and county_name. `drop(adcode)` drops administrative-division-code variables of province_adcode, city_adcode, and county_adcode. `drop(id)` drops unique IDs of province_id, city_id, and county_id variables 
 - `prefix(str)`: prefix to add to variable names 
 - `suffix(str)`: suffix to add to variable names 
+- `county_short`: allow short names for county-level matching. Default is not.
 
 Currently, the `county_id` is unreliable! Only province- and city-level IDs are manually verified. 
 
@@ -63,9 +64,9 @@ Example 2: Use user-specified parse year.
 cnloc address1 year1
 ```
 
-Example 3: Use parse year of 2022. Drop parse year, names and administrative division codes of provinces, cities, and counties. Set prefix and suffix for final variables.
+Example 3: Use parse year of 2022. Drop parse year, names and administrative division codes of provinces, cities, and counties. Set prefix and suffix for final variables. Allow matching using county short names.
 ```stata
-cnloc address1 , year(2022) drop(year name adcode) prefix(a_) suffix(_b)
+cnloc address1 , year(2022) drop(year name adcode) prefix(a_) suffix(_b) county_short
 ```
 
 
