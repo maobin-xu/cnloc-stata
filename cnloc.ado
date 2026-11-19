@@ -30,9 +30,7 @@ program define cnloc
 		* parse address
 		python: import cnloc
 		python: county_short = True if "`county_short'" != "" else False
-		python: year = None if "`parsing_year'".strip()=="" else "`parsing_year'"
-		python: cnloc.parse_address_from_Stata("`input_location'", year=year, mode=`mode', drop="`drop'", prefix="`prefix'", suffix="`suffix'", sample="`touse'", county_short=county_short)
+		python: cnloc.parse_address_from_Stata("`input_location'", year="`parsing_year'", mode=`mode', drop="`drop'", prefix="`prefix'", suffix="`suffix'", sample="`touse'", county_short=county_short)
     }
 end
-
 
