@@ -1,6 +1,6 @@
 # cnloc (China Location)
 
-Last updated on 2026-01-13
+Last updated on 2026-11-20
 
 `cnloc` is an Stata interface for the Python cnloc package, which parses Chinese addresses to get province, city, and county names (_name), administrative division codes (_adcode), and unique IDs (_id) from addresses.
 
@@ -23,14 +23,13 @@ cnloc address_var [ year_var] [if] [in] [, year(str) mode(str) drop(str) prefix(
 ```
 - `address_var`: variable name for address strings
 - `year_var`: variable name for year
-- `year(str)`: year for matching. An interger or variable name. Default is `year(2024)`. Valid range is from 1980 to 2024, and invalid years will be clipped to the default year 2024. Alternative method is to use `year_var`
+- `year(str)`: year for matching. An interger or variable name. Default is `year(2025)`. Valid range is from 1980 to 2025, and invalid years will be clipped to the default year 2025. Alternative method is to use `year_var`
 - `mode(str)`: matching mode. Default is `mode(1)`. `mode(1)` is left to right (high to low, province to county), following string order. `mode(2)` is low to high (county to province), ignoring string order; not recommended for basic use 
 - `drop(str)`: variable list to drop in the final output. Default is None. `drop(year)` drops the year variable. `drop(name)}` drops full-name variables of province_name, city_name, and county_name. `drop(adcode)` drops administrative-division-code variables of province_adcode, city_adcode, and county_adcode. `drop(id)` drops unique IDs of province_id, city_id, and county_id variables 
 - `prefix(str)`: prefix to add to variable names 
 - `suffix(str)`: suffix to add to variable names 
 - `county_short`: allow short names for county-level matching. Default is not.
 
-Currently, the `county_id` is unreliable! Only province- and city-level IDs are manually verified. 
 
 ## Examples
 
@@ -49,14 +48,14 @@ foreach addr in `address_list' {
 }
 
 * parse year
-gen year1 = 2024
+gen year1 = 2025
 ```
 
 
 Example 1: A simple example. The two are identical. 
 ```stata
 cnloc address1
-cnloc address1 , year(2024)
+cnloc address1 , year(2025)
 ```
 
 Example 2: Use user-specified parse year.
