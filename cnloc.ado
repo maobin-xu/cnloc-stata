@@ -9,7 +9,7 @@ program define cnloc
     cnloc location year , mode(1) pre(a_) suf(_b)
     cnloc location , year(2025) mode(1) drop(year adcode id) pre(a_) suf(_b) county_short
     */
-    syntax varlist(default=none min=1 max=2) [if] [in] [, year(integer) mode(integer 1) drop(string) PREfix(string) SUFfix(string) county_short ]   
+    syntax varlist(default=none min=1 max=2) [if] [in] [, year(integer 2025) mode(integer 1) drop(string) PREfix(string) SUFfix(string) county_short ]   
 	
 	// mark sample
 	marksample touse, novarlist
